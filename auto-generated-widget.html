@@ -118,13 +118,13 @@ console.log(window["_typeface_js"]);
 */
 
 // Test this element. This code is auto-removed by the chilipeppr.load()
-cprequire_test(["inline:com-chilipeppr-widget-autolevel"], function (autolevel) {
+cprequire_test(["inline:com-chilipeppr-widget-autolevel-smoothie-vt"], function (autolevel) {
     console.log("test running of " + autolevel.id);
     autolevel.init();
     
-    $('#com-chilipeppr-widget-autolevel').css('margin', '30px');
-    $('#com-chilipeppr-widget-autolevel').css('position', 'relative');
-    $('#com-chilipeppr-widget-autolevel').css('background', 'none');
+    $('#com-chilipeppr-widget-autolevel-smoothie-vt').css('margin', '30px');
+    $('#com-chilipeppr-widget-autolevel-smoothie-vt').css('position', 'relative');
+    $('#com-chilipeppr-widget-autolevel-smoothie-vt').css('background', 'none');
     $('body').prepend('<div id="3dviewer"></div>');
 
     chilipeppr.load(
@@ -188,10 +188,10 @@ cprequire_test(["inline:com-chilipeppr-widget-autolevel"], function (autolevel) 
 } /*end_test*/ );
 
 
-cpdefine("inline:com-chilipeppr-widget-autolevel", ["chilipeppr_ready", "ThreeHelvetiker", "Three"], function () {
+cpdefine("inline:com-chilipeppr-widget-autolevel-smoothie-vt", ["chilipeppr_ready", "ThreeHelvetiker", "Three"], function () {
     
     return {
-        id: "com-chilipeppr-widget-autolevel",
+        id: "com-chilipeppr-widget-autolevel-smoothie-vt",
         url: "https://raw.githubusercontent.com/marcus9169/widget-autolevel-smoothie-vt/master/auto-generated-widget.html",       // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
         fiddleurl: "http://ide.c9.io/root/CNC", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
         githuburl: "http://github.com/marcus9169/widget-autolevel-smoothie-vt", // The backing github repo
@@ -1466,7 +1466,38 @@ cpdefine("inline:com-chilipeppr-widget-autolevel", ["chilipeppr_ready", "ThreeHe
                     console.log("new dataline:", data.dataline);
                 }
                 */
-                var json = $.parseJSON(data.dataline);
+                
+                var dataline = data.dataline;
+
+                switch (true) {
+                    case /^</.test(dataline):
+                        // status message do not display
+                        //axisInfo(dataline);
+                        break;
+                    case /^\[PRB/.test(dataline):
+                        // probe point
+                        // [PRB:0.000,0.000,0.000:0]
+                        
+                        var str = dataline.replace('PRB:','')
+                        str = str.replace('[','')
+                        str = str.replace(']','')
+                        var xyz = str.split(',')
+                        
+                        var json = {
+                            prb: {
+                                x: xyz[0],
+                                y: xyz[1],
+                                z: xyz[2]
+                            }
+                        }
+                        
+                        break;
+                    default:
+                        //
+                    break;
+                }
+                
+                //var json = $.parseJSON(data.dataline);
                 
                 // G38.2 Z-1 F5 approach
                 // dataline: {"r":{"prb":{"e":1,"x":20.150,"y":6.831,"z":-2.916,"a":0.000,"b":0.000,"c":0.000}},"f":[1,0,0,1169]}
