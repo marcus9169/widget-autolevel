@@ -1398,9 +1398,9 @@ cpdefine("inline:widget-autolevel-smoothie-vt", ["chilipeppr_ready", "ThreeHelve
                         
                         var json = {
                             prb: {
-                                x: xyz[0],
-                                y: xyz[1],
-                                z: xyz[2]
+                                x: parseFloat( xyz[0]),
+                                y: parseFloat( xyz[1]),
+                                z: parseFloat( xyz[2])
                             }
                         }
                         
