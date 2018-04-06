@@ -1293,9 +1293,9 @@ cpdefine("inline:widget-autolevel-smoothie-vt", ["chilipeppr_ready", "ThreeHelve
             
             // Jarret Luft's fix
             this.status("Moving to " + pos);
-            this.send("G0 Z" + $("#com-chilipeppr-widget-autolevel .high-z").val() + "\n"); //raise probe
+            this.send("G0 Z" + $("#widget-autolevel-smoothie-vt .high-z").val() + "\n"); //raise probe
             this.send("G0 X" + probe.x + " Y" + probe.y + "\n"); //move to next probe point
-            this.send("G0 Z" + $("#com-chilipeppr-widget-autolevel .probe-z").val() + "\n"); //lower probe to starting point
+            this.send("G0 Z" + $("#widget-autolevel-smoothie-vt .probe-z").val() + "\n"); //lower probe to starting point
 
             /*
             this.status("Moving to " + pos);
