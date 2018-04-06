@@ -1376,7 +1376,7 @@ cpdefine("inline:widget-autolevel-smoothie-vt", ["chilipeppr_ready", "ThreeHelve
                 */
                 
                 var dataline = data.dataline;
-
+                var exit = false;
                 switch (true) {
                     case /^</.test(dataline):
                         // status message do not display
@@ -1407,8 +1407,12 @@ cpdefine("inline:widget-autolevel-smoothie-vt", ["chilipeppr_ready", "ThreeHelve
                         break;
                     default:
                         //
-                        return;
+                        exit = true;
                     break;
+                }
+                
+                if (exit) {
+                    return;
                 }
                 
                 //var json = $.parseJSON(data.dataline);
