@@ -1390,7 +1390,7 @@ cpdefine("inline:widget-autolevel-smoothie-vt", ["chilipeppr_ready", "ThreeHelve
                         str = str.replace('[','')
                         str = str.replace(']','')
 
-                        str = str.replace(/[^\r\n]+/g, '');
+                        str = str.replace(/(?:\r\n|\r|\n)/g, '');
                         str = str.replace(':0', '');
                         str = str.replace(':1', '');
 
