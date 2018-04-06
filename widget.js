@@ -1402,6 +1402,7 @@ cpdefine("inline:widget-autolevel-smoothie-vt", ["chilipeppr_ready", "ThreeHelve
                         break;
                     default:
                         //
+                        return;
                     break;
                 }
                 
