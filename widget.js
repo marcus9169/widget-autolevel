@@ -1389,6 +1389,11 @@ cpdefine("inline:widget-autolevel-smoothie-vt", ["chilipeppr_ready", "ThreeHelve
                         var str = dataline.replace('PRB:','')
                         str = str.replace('[','')
                         str = str.replace(']','')
+
+                        str = str.replace(/[^\r\n]+/g, '');
+                        str = str.replace(':0', '');
+                        str = str.replace(':1', '');
+
                         var xyz = str.split(',')
                         
                         var json = {
