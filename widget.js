@@ -1381,6 +1381,7 @@ cpdefine("inline:widget-autolevel-smoothie-vt", ["chilipeppr_ready", "ThreeHelve
                     case /^</.test(dataline):
                         // status message do not display
                         //axisInfo(dataline);
+                        exit = true;
                         break;
                     case /^\[PRB/.test(dataline):
                         // probe point
