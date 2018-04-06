@@ -122,9 +122,9 @@ cprequire_test(["inline:com-chilipeppr-widget-autolevel-smoothie-vt"], function 
     console.log("test running of " + autolevel.id);
     autolevel.init();
     
-    $('#com-chilipeppr-widget-autolevel-smoothie-vt').css('margin', '30px');
-    $('#com-chilipeppr-widget-autolevel-smoothie-vt').css('position', 'relative');
-    $('#com-chilipeppr-widget-autolevel-smoothie-vt').css('background', 'none');
+    $('#widget-autolevel-smoothie-vt').css('margin', '30px');
+    $('#widget-autolevel-smoothie-vt').css('position', 'relative');
+    $('#widget-autolevel-smoothie-vt').css('background', 'none');
     $('body').prepend('<div id="3dviewer"></div>');
 
     chilipeppr.load(
@@ -238,16 +238,16 @@ cpdefine("inline:widget-autolevel-smoothie-vt", ["chilipeppr_ready", "ThreeHelve
             $('.com-chilipeppr-widget-autolevel-viewdata').click( this.showData.bind(this) );
             
             // setup del files
-            $('#com-chilipeppr-widget-autolevel .recent-file-delete').click( this.deleteRecentFiles.bind(this));
+            $('#widget-autolevel-smoothie-vt .recent-file-delete').click( this.deleteRecentFiles.bind(this));
 
             this.buildRecentFileMenu();
             
             // paste loader
-            $('#com-chilipeppr-widget-autolevel .dropdown-menu .paste-load').click(function(e) {
+            $('#widget-autolevel-smoothie-vt .dropdown-menu .paste-load').click(function(e) {
                 e.stopPropagation();
             });
             var that = this;
-            $('#com-chilipeppr-widget-autolevel .dropdown-menu .paste-load-go').click(function(e) {
+            $('#widget-autolevel-smoothie-vt .dropdown-menu .paste-load-go').click(function(e) {
                 that.loadText();
             });
             
@@ -291,7 +291,7 @@ cpdefine("inline:widget-autolevel-smoothie-vt", ["chilipeppr_ready", "ThreeHelve
         },
         loadText: function() {
             console.log("loading probe data from paste");
-            var data = $('#com-chilipeppr-widget-autolevel .dropdown-menu .paste-load').val();
+            var data = $('#widget-autolevel-smoothie-vt .dropdown-menu .paste-load').val();
             var name = "Paste: ";
             if (data.length > 20) name += data.substring(0,20);
             else name += data;
@@ -357,9 +357,9 @@ cpdefine("inline:widget-autolevel-smoothie-vt", ["chilipeppr_ready", "ThreeHelve
         buildRecentFileMenu: function() {
             
             // cleanup prev recent files
-            $('#com-chilipeppr-widget-autolevel .dropdown-menu2 > li.recent-file-item').remove();
+            $('#widget-autolevel-smoothie-vt .dropdown-menu2 > li.recent-file-item').remove();
             
-            var li = $('#com-chilipeppr-widget-autolevel .dropdown-menu2 > li.recent-files');
+            var li = $('#widget-autolevel-smoothie-vt .dropdown-menu2 > li.recent-files');
             console.log("listItems:", li);
             var ctr = 0;
             var recentName = localStorage.getItem("com-chilipeppr-widget-autolevel-recent" + ctr + "-name");
