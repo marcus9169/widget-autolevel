@@ -96,10 +96,10 @@ cprequire_test(["inline:com-chilipeppr-widget-autolevel-smoothie-vt"], function 
 } /*end_test*/ );
 
 
-cpdefine("inline:com-chilipeppr-widget-autolevel-smoothie-vt", ["chilipeppr_ready", "ThreeHelvetiker", "Three"], function () {
+cpdefine("inline:widget-autolevel-smoothie-vt", ["chilipeppr_ready", "ThreeHelvetiker", "Three"], function () {
     
     return {
-        id: "com-chilipeppr-widget-autolevel-smoothie-vt",
+        id: "widget-autolevel-smoothie-vt",
         url: "(auto fill by runme.js)",       // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
         fiddleurl: "(auto fill by runme.js)", // The edit URL. This can be auto-filled by runme.js in Cloud9 if you'd like, or just define it on your own to help people know where they can edit/fork your widget
         githuburl: "(auto fill by runme.js)", // The backing github repo
